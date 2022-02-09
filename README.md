@@ -9,5 +9,9 @@ ToMany
 
 4. Напишите код сохранения сущностей в БД. Добавьте 1 марку и связанные с ней 5 моделей.
 
+![ScreenShot](images/photo1.png)
 
+![ScreenShot](images/photo2.png)
+
+![ScreenShot](images/photo3.png)
 
