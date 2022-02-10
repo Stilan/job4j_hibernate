@@ -18,3 +18,8 @@ create table author (
     name varchar(2000)
 );
 select * from author;
+
+drop table j_markAuto;
+drop table j_modelAuto;
+
+drop table j_markAuto_j_modelAuto;

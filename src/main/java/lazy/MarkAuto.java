@@ -1,3 +1,5 @@
+package lazy;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +15,7 @@ public class MarkAuto {
     public int id;
     public String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "markAuto")
     private List<ModelAuto> modelAutoArrayList = new ArrayList<>();
 
 
@@ -40,6 +42,14 @@ public class MarkAuto {
         this.name = name;
     }
 
+    public List<ModelAuto> getModelAutoArrayList() {
+        return modelAutoArrayList;
+    }
+
+    public void setModelAutoArrayList(List<ModelAuto> modelAutoArrayList) {
+        this.modelAutoArrayList = modelAutoArrayList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -57,7 +67,11 @@ public class MarkAuto {
         return Objects.hash(id, name);
     }
 
-    public void addUser(ModelAuto u) {
-        this.modelAutoArrayList.add(u);
+    @Override
+    public String toString() {
+        return "MarkAuto{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
 }

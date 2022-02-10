@@ -1,3 +1,5 @@
+package lazy;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -10,9 +12,14 @@ public class ModelAuto {
     public int id;
     public String name;
 
-    public static ModelAuto of(String name) {
+    @ManyToOne
+    @JoinColumn(name = "markAuto_id")
+    private MarkAuto markAuto;
+
+    public static ModelAuto of(String name, MarkAuto markAuto) {
         ModelAuto modelAuto = new ModelAuto();
         modelAuto.name = name;
+        modelAuto.markAuto = markAuto;
         return modelAuto;
     }
 
@@ -48,5 +55,14 @@ public class ModelAuto {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return "ModelAuto{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", markAuto=" + markAuto
+                + '}';
     }
 }

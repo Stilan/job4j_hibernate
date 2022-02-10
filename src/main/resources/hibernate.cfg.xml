@@ -18,8 +18,8 @@
         <property name="use_sql_comments">true</property>
         <property name="hibernate.jdbc.time_zone">GMT+5</property>
 
-        <mapping class="MarkAuto"/>
-        <mapping class="ModelAuto"/>
+        <mapping class="lazy.MarkAuto"/>
+        <mapping class="lazy.ModelAuto"/>
         <mapping class="Author"/>
         <mapping class="Book"/>
 
