@@ -22,6 +22,8 @@
         <mapping class="lazy.ModelAuto"/>
         <mapping class="Author"/>
         <mapping class="Book"/>
+        <mapping class="hql.Student"/>
+        <mapping class="hql.Candidate"/>
 
     </session-factory>
 </hibernate-configuration>
