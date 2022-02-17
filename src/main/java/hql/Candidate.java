@@ -15,6 +15,9 @@ public class Candidate {
 
     private int salary;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    private DBVacancies dbVacancies;
+
     public static Candidate of(String name, int experience, int salary) {
         Candidate candidate = new Candidate();
         candidate.name = name;
@@ -56,6 +59,14 @@ public class Candidate {
         this.salary = salary;
     }
 
+    public DBVacancies getVacancy() {
+        return dbVacancies;
+    }
+
+    public void setVacancy(DBVacancies dbVacancies) {
+        this.dbVacancies = dbVacancies;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,11 +86,6 @@ public class Candidate {
 
     @Override
     public String toString() {
-        return "Candidate{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", experience=" + experience
-                + ", salary=" + salary
-                + '}';
+        return String.format("Candidate: id=%s, name=%s, dbVacancies=%s", id, name, dbVacancies);
     }
 }

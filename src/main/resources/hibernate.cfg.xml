@@ -25,6 +25,8 @@
         <mapping class="hql.Candidate"/>
         <mapping class="hql.Account"/>
         <mapping class="hql.Book"/>
+        <mapping class="hql.DBVacancies"/>
+        <mapping class="hql.Vacancy"/>
 
     </session-factory>
 </hibernate-configuration>
