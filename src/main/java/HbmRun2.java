@@ -12,7 +12,7 @@ public class HbmRun2 {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-
+/**
             Author one = Author.of("Джошуа Блох");
             Author two = Author.of("Кэти Сьерра");
             Author tree = Author.of("Берт Бейтс");
@@ -26,6 +26,7 @@ public class HbmRun2 {
 
             session.persist(book1);
             session.persist(book2);
+ **/
 
             session.getTransaction().commit();
             session.close();

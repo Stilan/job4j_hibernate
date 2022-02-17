@@ -21,9 +21,10 @@
         <mapping class="lazy.MarkAuto"/>
         <mapping class="lazy.ModelAuto"/>
         <mapping class="Author"/>
-        <mapping class="Book"/>
         <mapping class="hql.Student"/>
         <mapping class="hql.Candidate"/>
+        <mapping class="hql.Account"/>
+        <mapping class="hql.Book"/>
 
     </session-factory>
 </hibernate-configuration>
