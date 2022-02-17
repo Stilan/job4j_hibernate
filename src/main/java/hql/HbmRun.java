@@ -35,6 +35,7 @@ public class HbmRun {
             query.setParameter("fId", 1);
             System.out.println(query.uniqueResult());
 
+
             query = session.createQuery("from Candidate s where s.name = :nameCan");
             query.setParameter("nameCan", "Дима");
             System.out.println(query.list());
