@@ -42,8 +42,6 @@ public class HbmRun2 {
                             + "where st.id = :sId", Student.class
             ).setParameter("sId", 1).uniqueResult();
 
-
-
             session.getTransaction().commit();
             session.close();
         }  catch (Exception e) {

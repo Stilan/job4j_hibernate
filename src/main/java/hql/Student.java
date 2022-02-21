@@ -82,10 +82,21 @@ public class Student {
     public int hashCode() {
         return Objects.hash(id);
     }
-
+/**
     @Override
     public String toString() {
         return String.format("Student: id=%s, name=%s, age=%s, city=%s, account=%s", id, name, age, city, account);
     }
+**/
 
+    @Override
+    public String toString() {
+        return "Student{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", age=" + age
+                + ", city='" + city + '\''
+                + ", account=" + account
+                + '}';
+    }
 }
