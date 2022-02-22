@@ -1,6 +1,7 @@
 package integration;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -9,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
@@ -37,8 +40,15 @@ public class OrdersStoreTest {
         pool.getConnection().prepareStatement(builder.toString()).executeUpdate();
     }
 
+    @After
+    public void dropTable() throws SQLException {
+        try (Connection con = pool.getConnection();
+             PreparedStatement statement = con.prepareStatement("drop table orders")) {
+            statement.execute();
+        }
+    }
+
     @Test
-    @Ignore
     public void whenSaveOrderAndFindAllOneRowWithDescription() {
         OrdersStore store = new OrdersStore(pool);
 
@@ -52,7 +62,6 @@ public class OrdersStoreTest {
     }
 
     @Test
-    @Ignore
     public void updateTest() {
         OrdersStore store = new OrdersStore(pool);
 
@@ -71,7 +80,6 @@ public class OrdersStoreTest {
     }
 
     @Test
-    @Ignore
     public void  findByNameTest() {
         OrdersStore store = new OrdersStore(pool);
 
@@ -84,7 +92,6 @@ public class OrdersStoreTest {
 
 
     @Test
-    @Ignore
     public void findByIdTest() {
         OrdersStore store = new OrdersStore(pool);
 
@@ -95,4 +102,6 @@ public class OrdersStoreTest {
         assertThat(store.findById(2).getId(), is(2));
         assertThat(store.findById(2).getName(), is("name2"));
     }
+
+
 }
